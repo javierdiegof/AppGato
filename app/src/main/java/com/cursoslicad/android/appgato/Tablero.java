@@ -38,6 +38,52 @@ public class Tablero {
         mVictoriasO ++;
     }
 
+    public String getTurnoInicio() {
+        return mTurnoInicio;
+    }
+
+    public void setTurnoInicio(String turnoInicio) {
+        mTurnoInicio = turnoInicio;
+    }
+
+    public void setTurnoActual(String turnoActual) {
+        mTurnoActual = turnoActual;
+    }
+
+    public int getCeldasOcupadas() {
+        return mCeldasOcupadas;
+    }
+
+    public void setCeldasOcupadas(int celdasOcupadas) {
+        mCeldasOcupadas = celdasOcupadas;
+    }
+
+    public static String getJugadorX() {
+        return JUGADOR_X;
+    }
+
+    public static String getJugadorO() {
+        return JUGADOR_O;
+    }
+
+    public void setVictoriasX(int victoriasX) {
+        mVictoriasX = victoriasX;
+    }
+
+    public void setVictoriasO(int victoriasO) {
+        mVictoriasO = victoriasO;
+    }
+
+
+    public Boton[] getArrBotones() {
+        return mArrBotones;
+    }
+
+
+    public void setMarcaHijo(int indice, String marcaCelda){
+        mArrBotones[indice].setMarcaCelda(marcaCelda);
+    }
+
     //*Getters y setters
 
 
