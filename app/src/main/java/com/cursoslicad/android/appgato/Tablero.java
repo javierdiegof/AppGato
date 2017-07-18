@@ -14,12 +14,30 @@ public class Tablero {
     private String mTurnoInicio;
     private String mTurnoActual;
     private int mCeldasOcupadas;
+    private int mVictoriasX = 0;
+    private int mVictoriasO = 0;
     private Boton[] mArrBotones;
 
     // Getters y setters
     public String getTurnoActual() {
         return mTurnoActual;
     }
+    public int getVictoriasX() {
+        return mVictoriasX;
+    }
+
+    public int getVictoriasO() {
+        return mVictoriasO;
+    }
+
+    public void incVictoriasX(){
+        mVictoriasX ++;
+    }
+
+    public void incVictoriasO(){
+        mVictoriasO ++;
+    }
+
     //*Getters y setters
 
 

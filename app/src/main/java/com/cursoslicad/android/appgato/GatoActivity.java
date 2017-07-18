@@ -1,5 +1,7 @@
 package com.cursoslicad.android.appgato;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
@@ -9,22 +11,27 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class GatoActivity extends AppCompatActivity {
+    public static final String EXTRA_VICTORIAS_X = "com.cursoslicad.android.appgato.VICTORIAS_X";
+    public static final String EXTRA_VICTORIAS_O = "com.cursoslicad.android.appgato.VICTORIAS_O";
     private static final String TAG = "GatoActivity";
     private Tablero tablero = new Tablero();
 
     GridLayout tableroGridLayout;
     TextView ganadorTextview;
     Button resetButton;
+    Button resultadosButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gato);
+        Log.d(TAG, "llamada onCreate()");
 
         ganadorTextview = (TextView) findViewById(R.id.text_view);
         resetButton = (Button) findViewById(R.id.reset_button);
         tableroGridLayout= (GridLayout) findViewById(R.id.grid_layout);
+        resultadosButton = (Button) findViewById(R.id.boton_resultados);
 
         // Se configura el click para los botones del tablero
         int childCount = tableroGridLayout.getChildCount();
@@ -50,6 +57,16 @@ public class GatoActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        resultadosButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mostrarResultados(GatoActivity.this);
+                    }
+                }
+        );
+
     }
 
 
@@ -76,9 +93,11 @@ public class GatoActivity extends AppCompatActivity {
         if(ganador != null){
             if(ganador.equals(Tablero.JUGADOR_X)){
                 ganadorTextview.setText("Ganador: " + Tablero.JUGADOR_X);
+                tablero.incVictoriasX();
             }
             else if(ganador.equals(Tablero.JUGADOR_O)){
                 ganadorTextview.setText("Ganador: " + Tablero.JUGADOR_O);
+                tablero.incVictoriasO();
             }
             // Hubo un empate
             else{
@@ -107,5 +126,48 @@ public class GatoActivity extends AppCompatActivity {
         }
     }
 
+    private void mostrarResultados(Context context){
+        Intent intent = new Intent(context, ResActivity.class);
+        intent.putExtra(EXTRA_VICTORIAS_X, tablero.getVictoriasX());
+        intent.putExtra(EXTRA_VICTORIAS_O, tablero.getVictoriasO());
+        startActivity(intent);
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d(TAG, "llamada onStart()");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.d(TAG, "llamado onResume()");
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        Log.d(TAG, "llamada onPause()");
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        Log.d(TAG, "llamada onStop()");
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d(TAG, "llamada onDestroy()");
+    }
+
+    @Override
+    public void onRestart(){
+        super.onRestart();
+        Log.d(TAG, "llamada onRestart()");
+        resetVista();
+    }
 
 }

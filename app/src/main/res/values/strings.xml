@@ -3,4 +3,12 @@
     <string name="reset_button">Reset</string>
     <string name="ganador">Ganador:</string>
     <string name="empate">Empate</string>
+    <string name="resultados_button">Resultados</string>
+    <string name="tablero_resultados">Tablero de resultados</string>
+    <string name="victorias_x">Victorias X</string>
+    <string name="victorias_o">Victorias O</string>
+    <string name="porcentajes">Porcentajes</string>
+    <string name="num_victorias">%1$d ganados</string>
+    <string name="val_porcentajes">%1$.2f - %2$.2f</string>
+    <string name="val_nulo">-</string>
 </resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="16dp">
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/tablero_resultados"
+        android:textSize="32sp"
+        android:layout_margin="8dp"
+        />
+
+    <TextView
+        style="@style/TituloRes"
+        android:text="@string/victorias_x"
+        android:textColor="?android:attr/textColorHint"/>
+
+    <TextView
+        android:id="@+id/txt_view_victorias_x"
+        style="@style/ValRes"
+        android:text="@string/num_victorias"
+        />
+
+    <TextView
+        style="@style/TituloRes"
+        android:text="@string/victorias_o"/>
+
+    <TextView
+        android:id="@+id/txt_view_victorias_o"
+        style="@style/ValRes"
+        android:text="@string/num_victorias"
+        />
+
+    <TextView
+        style="@style/TituloRes"
+        android:text="@string/porcentajes"/>
+
+    <TextView
+        android:id="@+id/txt_view_porcentajes"
+        style="@style/ValRes"
+        android:text="@string/val_porcentajes"
+        />
+</LinearLayout>
