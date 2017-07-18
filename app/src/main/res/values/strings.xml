@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AppGato</string>
+    <string name="reset_button">Reset</string>
+    <string name="ganador">Ganador:</string>
+    <string name="empate">Empate</string>
 </resources>
